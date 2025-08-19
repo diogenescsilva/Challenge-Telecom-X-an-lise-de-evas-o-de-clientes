@@ -71,9 +71,7 @@ Este projeto realiza uma análise exploratória e preditiva sobre **evasão de c
 ## ▶️ Como Executar
 
 1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seuusuario/churn-analysis.git
-   cd churn-analysis
+   https://github.com/diogenescsilva/Challenge-Telecom-X-an-lise-de-evas-o-de-clientes/tree/main
    
 Desenvolvido por Diógenes Calado da Silva 
 
