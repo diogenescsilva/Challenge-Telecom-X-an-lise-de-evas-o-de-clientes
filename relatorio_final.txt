@@ -1,0 +1,89 @@
+Relatório Final de Análise de Evasão de Clientes (Churn)
+
+
+1. Introdução
+
+O objetivo desta análise é investigar o fenômeno da evasão de clientes (churn) em uma empresa de telecomunicações. O churn ocorre quando um cliente deixa de utilizar os serviços da empresa, o que representa uma perda direta de receita e aumenta o custo de aquisição de novos clientes.
+
+Ao entender quais perfis de clientes têm maior probabilidade de cancelar, a empresa pode tomar decisões mais informadas e criar estratégias de retenção eficazes.
+
+
+2. Limpeza e Tratamento de Dados
+
+Os dados foram fornecidos em formato JSON, com campos aninhados relacionados a:
+
+- Informações pessoais do cliente
+- Serviços contratados (telefone, internet)
+- Detalhes de cobrança
+
+- Principais passos:
+
+- Conversão do JSON em um DataFrame plano, usando `json_normalize`
+- Transformação de valores "Yes"/"No" para booleanos
+- Conversão de colunas numéricas (`Total Charges`) para o tipo adequado
+- Tratamento de valores ausentes e duplicados
+- Codificação de variáveis para análises e modelagem
+
+
+3. Análise Exploratória de Dados (EDA)
+
+- Distribuição do Churn
+
+- A maioria dos clientes permanece na empresa
+- Cerca de 25% dos clientes cancelaram os serviços
+
+- Churn por variáveis categóricas
+
+- Contrato "Month-to-month" tem maior índice de churn
+- Clientes que usam "Electronic check" como método de pagamento também mostram maior evasão
+- A fatura digital (Paperless Billing) está associada a churn mais alto
+
+Churn por variáveis numéricas
+
+- Clientes que cancelam têm:
+  - Menor tempo de contrato (tenure)
+  - Menor gasto total acumulado
+  - Cobrança mensal mais elevada
+
+- Correlações
+
+- O tempo de permanência do cliente tem correlação negativa com churn
+- Cobrança mensal apresenta relação positiva com churn
+
+
+-Métricas de desempenho:
+- Boa capacidade de classificar corretamente clientes propensos a cancelar
+- Permitiu identificar as variáveis mais relevantes:
+
+Top 5 variáveis mais importantes:
+1. `customer_tenure`
+2. `account_Contract_Two year`
+3. `account_Charges_Monthly`
+4. `internet_InternetService_Fiber optic`
+5. `account_PaymentMethod_Electronic check`
+
+
+5. Conclusões e Insights
+
+- Clientes novos (tenure baixo) estão muito mais propensos a cancelar
+- Contratos mensais e pagamentos eletrônicos têm maior evasão
+- Cobranças mensais mais altas parecem desestimular a permanência
+- A forma como o cliente é cobrado impacta na retenção
+- Variáveis de engajamento digital (fatura digital) podem estar associadas a cancelamentos
+
+
+6. Recomendações
+
+Com base na análise, recomenda-se:
+
+1. Incentivar contratos de longo prazo, oferecendo descontos progressivos
+2. Monitorar clientes com tenure < 6 meses com ações de engajamento personalizadas
+3. Reavaliar planos com cobrança mensal alta — sugerir planos mais equilibrados
+4. Oferecer suporte dedicado a clientes com pagamento eletrônico
+5. Implementar um modelo preditivo em produção para monitorar churn em tempo real
+
+
+- Observação final
+
+Essa análise oferece uma base sólida para decisões estratégicas de retenção de clientes. A adoção de abordagens baseadas em dados pode gerar impactos diretos na redução da evasão e no aumento da lucratividade.
+
